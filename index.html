@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tejaswini's Parlor | Best Beauty Salon in Bhavnagar</title>
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================
+           1. MODERN THEME & VARIABLES
+        ============================ */
+        :root {
+            --primary: #d4af37; /* Gold */
+            --primary-dark: #b4932a;
+            --secondary: #2c2c2c; /* Dark Black/Gray */
+            --accent: #fdf5f7; /* Very Light Pink */
+            --bg-body: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-body);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography & Utilities */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .section-padding { padding: 80px 20px; }
+        .text-center { text-align: center; }
+
+        /* Buttons */
+        .btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #f3d474 100%);
+            color: #fff;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4); }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn-outline:hover { background: var(--primary); color: white; }
+
+        /* ============================
+           2. HEADER
+        ============================ */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; max-width: 1200px; margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem; font-weight: 700;
+            color: var(--secondary); text-decoration: none;
+        }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* ============================
+           3. HERO SECTION
+        ============================ */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: white; padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; color: white; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+
+        /* ============================
+           4. NEW: ABOUT OWNER SECTION
+        ============================ */
+        .about-owner {
+            background-color: #fff;
+            padding: 80px 5%;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* Photo Frame Styling */
+        .owner-img-wrapper {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .owner-img-wrapper img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 20px 20px 0px var(--accent); /* Creative Border */
+            transition: 0.3s;
+        }
+        
+        .owner-img-wrapper:hover img { transform: translateY(-5px); box-shadow: 10px 10px 0px var(--primary); }
+
+        .owner-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .owner-info h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .owner-info h4 { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-size: 0.9rem; }
+        .owner-info p { margin-bottom: 20px; color: #555; font-size: 1.1rem; }
+
+        /* ============================
+           5. SERVICES
+        ============================ */
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-header .divider { height: 3px; width: 70px; background: var(--primary); margin: 0 auto; }
+
+        .service-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 25px; border: 1px solid var(--primary); background: transparent; border-radius: 30px; cursor: pointer; transition: 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; }
+
+        .service-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        
+        .service-item {
+            background: white; padding: 25px; border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            border: 1px solid #eee; transition: 0.3s;
+        }
+        .service-item:hover { border-color: var(--primary); transform: scale(1.02); }
+        .service-price { color: var(--primary); font-weight: 700; }
+
+        /* ============================
+           6. GALLERY
+        ============================ */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px; max-width: 1200px; margin: 0 auto 30px;
+        }
+        .gallery-img { height: 300px; border-radius: 15px; overflow: hidden; }
+        .gallery-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-img:hover img { transform: scale(1.1); }
+
+        /* ============================
+           7. CONTACT & BOOKING
+        ============================ */
+        .contact-section { background: var(--accent); }
+        .booking-card {
+            background: white; border-radius: 20px; box-shadow: var(--shadow);
+            max-width: 900px; margin: 0 auto; display: flex; flex-wrap: wrap; overflow: hidden;
+        }
+        .contact-info { flex: 1; background: var(--secondary); color: white; padding: 40px; min-width: 300px; }
+        .booking-form { flex: 1.5; padding: 40px; min-width: 300px; }
+        
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; }
+
+        /* Footer */
+        footer { background: #1a1a1a; color: #ccc; padding: 50px 20px 20px; text-align: center; }
+        .social-links a { color: white; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
+        .social-links a:hover { color: var(--primary); }
+
+        /* Floating WA */
+        .float-wa {
+            position: fixed; bottom: 25px; right: 25px; background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: white; padding: 20px; text-align: center; }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+            .about-container { flex-direction: column; text-align: center; }
+            .booking-card { flex-direction: column; }
+            .contact-info { order: 2; } .booking-form { order: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-spa" style="color: var(--primary);"></i> Tejaswini's <span>Parlor</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#booking" class="btn-gold" style="padding: 8px 20px; font-size: 0.9rem;">Book Now</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p style="letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; color: #f3d474;">Bhavnagar's Finest</p>
+            <h1>Discover Your <br> <span style="color: var(--primary); font-style: italic;">Inner Glow</span></h1>
+            <p>Professional Beauty Care & Premium Styling</p>
+            <a href="#booking" class="btn-gold">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- NEW: About Owner Section -->
+    <section class="about-owner" id="about">
+        <div class="about-container">
+            <div class="owner-img-wrapper">
+                <!-- PHOTO CHANGE KARVA MATE NICHE NI LINK BADLI NAKHJO -->
+                <!-- Example: src="my-photo.jpg" -->
+                <a href="https://ibb.co/PGBFGBmS"><img src="https://i.ibb.co/7t7jt7Y9/Tejaswini.jpg" alt="Tejaswini" border="0"></a>
+            </div>
+            <div class="owner-info">
+                <h4>Meet the Artist</h4>
+                <h2>Tejaswini</h2>
+                <p>
+                    Hello! I am Tejaswini, the founder and lead stylist at <strong>Tejaswini's Parlor</strong>. 
+                    With a passion for beauty and years of professional experience, I believe that every woman deserves to look and feel her best.
+                </p>
+                <p>
+                    Whether it's a simple haircut or a complete bridal makeover, my goal is to provide you with a 
+                    hygienic, safe, and luxurious experience right here in Bhavnagar.
+            
+                </p>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="services">
+        <div class="section-header">
+            <h2>Our Premium Services</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="service-tabs">
+            <button class="tab-btn active" onclick="filterService('all')">All Services</button>
+            <button class="tab-btn" onclick="filterService('hair')">Hair</button>
+            <button class="tab-btn" onclick="filterService('skin')">Skin & Facial</button>
+            <button class="tab-btn" onclick="filterService('bridal')">Bridal Special</button>
+        </div>
+
+        <div class="service-container">
+            <div class="service-item" data-category="hair">
+                <div><h4>Stylish Hair Cut</h4><p>Layer, Feather, Bob</p></div>
+                <div class="service-price">₹250+</div>
+            </div>
+            <div class="service-item" data-category="hair">
+                <div><h4>Hair Spa</h4><p>L'Oreal Deep Conditioning</p></div>
+                <div class="service-price">₹800+</div>
+            </div>
+            <div class="service-item" data-category="skin">
+                <div><h4>Fruit Cleanup</h4><p>Instant glow</p></div>
+                <div class="service-price">₹400+</div>
+            </div>
+            <div class="service-item" data-category="skin">
+                <div><h4>Gold Facial</h4><p>Radiance for events</p></div>
+                <div class="service-price">₹1200+</div>
+            </div>
+            <div class="service-item" data-category="bridal">
+                <div><h4>Bridal Makeup</h4><p>HD / Airbrush</p></div>
+                <div class="service-price">Call Us</div>
+            </div>
+            <div class="service-item" data-category="bridal">
+                <div><h4>Engagement Look</h4><p>Subtle & Elegant</p></div>
+                <div class="service-price">₹4000+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section-padding" id="gallery" style="background-color: #fdfdfd;">
+        <div class="section-header">
+            <h2>Transformation Gallery</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-img"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work 1"></div>
+            <div class="gallery-img"><img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work 2"></div>
+            <div class="gallery-img"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work 3"></div>
+            <div class="gallery-img"><img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Work 4"></div>
+        </div>
+        
+        <!-- NEW: More Photos Button -->
+        <div class="text-center">
+            <!-- Ahya Instagram Link Muki Dejo -->
+            <a href="https://www.instagram.com/cute_girl_t_d?igsh=MTF6NG14MzJvZjk2bA==" target="_blank" class="btn-outline">
+                <i class="fab fa-instagram"></i> View More Photos
+            </a>
+        </div>
+    </section>
+
+    <!-- Appointment & Contact -->
+    <section class="section-padding contact-section" id="booking">
+        <div class="section-header">
+            <h2>Book Appointment</h2>
+            <p>Get your slot instantly via WhatsApp!</p>
+        </div>
+
+        <div class="booking-card">
+            <!-- Form -->
+            <div class="booking-form">
+                <form onsubmit="sendWhatsApp(event)">
+                    <label>Your Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter Name" required>
+                    
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile" class="form-control" placeholder="Enter Mobile" required>
+                    
+                    <label>Service</label>
+                    <select id="service" class="form-control">
+                        <option value="General Inquiry">Select Service</option>
+                        <option value="Hair Cut">Hair Cut</option>
+                        <option value="Facial">Facial</option>
+                        <option value="Bridal">Bridal Makeup</option>
+                    </select>
+                    
+                    <label>Date</label>
+                    <input type="date" id="date" class="form-control" required>
+                    
+                    <button type="submit" class="btn-gold" style="width: 100%;">Confirm on WhatsApp</button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h3>Visit Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Y/B3, Navjivan Society, Devbagh, Bhavnagar, 364001</p>
+                <p><i class="fas fa-phone-alt"></i> +91 96389 48152</p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="https://maps.app.goo.gl/9wpyF5pheKTbdCqw8?g_st=ac" target="_blank" class="btn-gold" style="background: white; color: var(--secondary); font-size: 0.9rem;">
+                        View Google Map
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="logo" style="color: white; margin-bottom: 10px;">Tejaswini's <span>Parlor</span></div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/919638948152"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">&copy; 2026 Tejaswini's Parlor.</p>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919638948152" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+
+        function filterService(category) {
+            const items = document.querySelectorAll('.service-item');
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            items.forEach(item => {
+                item.style.display = (category === 'all' || item.getAttribute('data-category') === category) ? 'flex' : 'none';
+            });
+        }
+
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            const n = document.getElementById('name').value, m = document.getElementById('mobile').value, s = document.getElementById('service').value, d = document.getElementById('date').value;
+            window.open(`https://wa.me/919638948152?text=Hello Tejaswini's Parlor, Book appointment:%0A👤 ${n}%0A📱 ${m}%0A💇‍♀️ ${s}%0A📅 ${d}`, '_blank');
+        }
+    </script>
+</body>
+</html>
